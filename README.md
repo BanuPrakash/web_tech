@@ -555,7 +555,68 @@ console.log("Welcome to loupe.");
 
 ```
 
-Resume @ 4:05
+ 
+7) async and await
+	==> syntactical sugar over Promise API
+
+	Promise API leads to callback hell.
+
+	connectToServer(connection => {
+		getProjects(connection => {
+				getEmployees( (proj) => {
+					getDetails( (emp) => {
+
+					});
+				});
+			})
+	});
+
+	fetch("https://jsonplaceholder.typicode.com/users/1")
+	.then(response => response.json())
+	.then(data =>console.log(data))
+
+
+ using async and await:
+
+
+
+8) class ==> Babel
+9) ES 6 modules ==> Babel
+10) Generators
+
+are functions which return series of output of different data types
+
+function* dataGenerator() {
+	console.log("task 1");
+	console.log("task 2");
+	yield "data";
+	console.log("task 3");
+	console.log("task 4");
+	console.log("task 5");
+	yield 100;
+	console.log("task 6");
+	yield true;
+	console.log("task 7");
+	yield {"id": 1, "name": "Kim"};
+}
+
+
+"yield" to return a value
+
+var ref = dataGenerator();
+
+ref.next();
+ref.next();
+
+SAGA Pattern ==> Redux SAGA
+
+========================================================
+
+
+
+
+
+
 
 
 
