@@ -6,9 +6,18 @@ function forEach(data, action) {
     }
 }
 
+// function filter(data, predicate) {
+//     var output = [];
+//     forEach(data, function(elem) {
+//         if(predicate(elem))
+//         output.push(elem)
+//     });
+//     return output;
+// }
+
 function filter(data, predicate) {
     var output = [];
-    forEach(data, function(elem) {
+    forEach(data, (elem) => {
         if(predicate(elem))
         output.push(elem)
     });
@@ -16,11 +25,18 @@ function filter(data, predicate) {
 }
 
 
+// function map(data, transformFn) {
+//     var output = [];
+//     forEach(data, function(elem) {
+//          output.push(transformFn(elem));
+//     });
+//     return output;
+// }
+
+
 function map(data, transformFn) {
     var output = [];
-    forEach(data, function(elem) {
-         output.push(transformFn(elem));
-    });
+    forEach(data, (elem) => output.push(transformFn(elem)));
     return output;
 }
 

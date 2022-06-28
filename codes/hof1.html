@@ -34,10 +34,12 @@
 
         console.log("evens")
 
-        var output = filter(elems, function(e) { return e % 2 === 0});
+        // var output = filter(elems, function(e) { return e % 2 === 0});
+        var output = filter(elems, e => e % 2 === 0);
         console.log(output);
         
-        var names = map(products, function(elem) { return elem.name });
+        // var names = map(products, function(elem) { return elem.name });
+        var names = map(products, elem => elem.name);
         forEach(names, console.log);
     </script>
 </body>

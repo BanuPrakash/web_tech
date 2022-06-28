@@ -363,8 +363,197 @@ console.log(fibanocci(34)); ==> compute and store result in cache
 
 console.log(fibanocci(34)); ==> get from cache
 
-=======
+======================================
 
+ES 6 / ECMAScript 2015
+
+Transcompiler / Transpiler / Pre-Processor
+
+* Babel
+
+Babel is a free and open-source JavaScript transcompiler that is mainly used to convert ECMAScript 2015+ code into a backwards compatible version of JavaScript that can be run by older JavaScript engines.
+
+* Tracuer
+
+===
+
+TypeScript
+* statically typed feature for JS
+
+var x:string = "Hello";
+
+var age:number = 24;
+
+* tsc ==> typescript compiler
+
+* LiveScript
+* Dart
+* CoffeeScript
+
+JS engine needs plain vanilla JS
+
+https://caniuse.com/
+
+ES 6 features:
+
+1) Arrow function
+
+let add = (x, y) => x + y;
+
+2) block level scope
+	let
+	const
+	
+var g = 100;
+const PI = 3.14159
+
+function doTask() {
+	var a = 10;
+	if(g > a) {
+		let b = 20; // not hoisted to function scope; block scope ==> uses Module system to control visiblity
+		c = 30;
+	}
+	console.log(g, a, b, c); // b is not visible
+}
+
+doTask();
+
+console.log(g, c);
+
+3) template string literal [tick]
+
+var name = "Harry"; 
+
+var place ='Bengaluru';
+
+Template String literal: ``
+
+
+var msg = `
+	<div>
+		<h1> ${name}</h1>
+		<p> Place : ${place} </p>
+</div>
+`
+
+msg  ="<div><h1>" + name + "</h1> <p>" + place + "</p></div>"
+
+4) Destructuring
+
+4.1) object
+
+var product = {"id":5,"name":"Samsung","price":68000.00,"category" : "tv"};
+
+ES 5 way:
+console.log(product.name); // use context to access member
+console.log(product.price);
+
+
+ES 6:
+
+let {name, price} = product; // from product extract name and price into local var
+
+console.log(name);
+console.log(price);
+
+
+4.2) array
+
+var elems = [5,10,15,2,8,18];
+
+var [first, second, ...others] = elems;
+
+// first 5
+// others [15, 2, 8, 18]
+
+same as:
+var first = elems[0];
+var second = elems[1];
+
+5) Clone
+
+var elems = [5,10,15,2,8,18];
+
+var ref = elems; // pointer
+ref[0] = 99;
+
+elems[0] becomes 99;
+
+var cpy = [...elems]; // clone
+
+
+var product = {"id":5,"name":"Samsung","price":68000.00,"category" : "tv"};
+
+
+var product_cpy = {...product}; // clone
+
+6) Promise API
+
+Synchronous method:
+
+function getProduct(id) {
+
+}
+
+
+let result = getProduct(5); // blocked
+console.log(result); 
+
+Asynchronous
+
+function getProduct(id) {
+	return new Promise( (resolve, reject) => {
+		// make api call to server
+		// based on status code from server
+		resolve(data); // or reject(err);
+	});
+}
+
+getProducts(4).then(
+	(data) => console.log(data), // resolve code
+	(err) => console.log(err)
+)
+
+console.log("Bye!!!");
+
+=================
+
+Callback queue is of 2 type:
+MicroQueue ==> Promise API
+MacroQueue ==> timer
+
+When stack is empty it takes all functions from microqueue and executes on stack one by one. once empty it takes
+functions from macroqueue
+
+Try https://www.jsv9000.app/
+```
+console.log("Hi!");
+function one() {
+            return new Promise( (resolve, reject) => {
+                 resolve("p1")
+            });
+}
+
+one().then(d => console.log(d));
+
+setTimeout(function timeout() {
+    console.log("t1");
+}, 0);
+
+setTimeout(function timeout() {
+    console.log("t2");
+}, 0);
+
+function two() {
+  return new Promise( (resolve, reject) => {
+                 resolve("p2")
+            });
+}
+
+two().then(d => console.log(d));
+console.log("Welcome to loupe.");
+
+```
 
 
 
