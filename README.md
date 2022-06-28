@@ -262,10 +262,29 @@ var add = new Function("x", "y" , "return x + y")
 ===============================================================
 
 
+High Order Functions
+* functions which accept function as argument
+* functions which return a function
+
+--> treat function as first-class member
 
 
 
+var data = [5,2,55,10,7,12];
 
+for(i = 0; i < data.length; i++) {
+	console.log(data[i]);
+}
+
+for(i = 0; i < data.length; i++) {
+	alert(data[i]);
+}
+
+
+Task--> write filter() in lib.js
+
+1) get even numbers from an array of numerical type
+2) from product json get only mobiles
 
 
 

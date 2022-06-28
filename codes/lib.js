@@ -5,3 +5,12 @@ function forEach(data, action) {
         action(data[i]);
     }
 }
+
+function filter(data, predicate) {
+    var output = [];
+    forEach(data, function(elem) {
+        if(predicate(elem))
+        output.push(elem)
+    });
+    return output;
+}

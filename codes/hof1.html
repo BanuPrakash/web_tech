@@ -20,10 +20,17 @@
             { "id": 5, "name": "Samsung", "price": 68000.00, "category": "tv" }];
 
         forEach(elems, console.log);
-        forEach(elems, alert);
+        // forEach(elems, alert);
 
         forEach(products, console.log);
-        
+
+        function isMobile(p) {
+            return p.category === 'mobile';
+        }
+        var mobiles = filter(products, isMobile);
+
+        console.log("mobiles")
+        forEach(mobiles, console.log);
     </script>
 </body>
 
