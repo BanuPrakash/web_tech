@@ -159,10 +159,107 @@ console.log(obj.getName()); // Peter
 console.log(obj.age); // 24
 
 
+2) function constructor
+
+function Product(name, price) {
+	this.name = name;
+	this.price = price;
+}
+
+Product("x", 100); // this refers to window
+
+let p1 = new Product("iPhone", 89000.00);
+let p2 = new Product("Sony", 189000.00);
+
+Adding behaviour:
+
+2.1) Object owned instance methods
+
+function Product(name, price) {
+	this.name = name;
+	this.price = price;
+
+	this.getName = function() {
+		return this.name;
+	}
+}
+
+let p1 = new Product("iPhone", 89000.00); // gets seperate copy of getName
+let p2 = new Product("Sony", 189000.00); // gets seperate copy of getName
+p1.getName();
+p2.getName();
+
+2.2) class owned instance methods
 
 
+function Product(name, price) {
+	this.name = name;
+	this.price = price;
+}
+
+Product.prototype.getName = function() {
+		return this.name;
+};
 
 
+let p1 = new Product("iPhone", 89000.00); 
+let p2 = new Product("Sony", 189000.00);  
+p1.getName();
+p2.getName();
+
+=============
+
+3) using JSON ==> JavaScript Object Notation
+
+{} refers object
+
+var obj = {}; // object
+
+obj.name = "Peter"; // state
+obj.age = 24; // state , instance varible
+
+obj.getName = function() {
+	return this.name
+}
+
+
+---
+// Singleton object
+var obj = {
+	"name": "James",
+	"age": 24,
+	"getName" : function () {
+		return this.name;
+	}
+}
+
+JSON key is string;
+value can be string, number, undefined, null, array, object, function
+
+
+var ref = obj.getName; // reference to function; context is lost; copies "window" as "this"
+
+ref(); // this.name ==> window.name ==> ''
+
+Solution:
+
+var nref = obj.getName.bind(obj);
+
+nref(); // James
+
+---
+
+
+Every function is an instance of Function
+
+function add(x,y) {
+	return x + y;
+}
+
+
+var add = new Function("x", "y" , "return x + y")
+ 
+===============================================================
 
 
 
