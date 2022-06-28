@@ -37,6 +37,8 @@
         var output = filter(elems, function(e) { return e % 2 === 0});
         console.log(output);
         
+        var names = map(products, function(elem) { return elem.name });
+        forEach(names, console.log);
     </script>
 </body>
 

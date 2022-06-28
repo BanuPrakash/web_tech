@@ -287,4 +287,85 @@ Task--> write filter() in lib.js
 2) from product json get only mobiles
 
 
+* forEach ==> traverse and perform action on each element
+* filter ==> subset based on predicate
+* map ==> transform data
+* reduce ==> aggregate =-> sum(), avg(), count(), max(), ...
+
+https://rxmarbles.com/
+
+    <script
+  src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja
+
+====================
+
+HOF: 2) functions which return a function
+
+function add(x, y) {
+	return x + y;
+}
+
+
+HOF:
+
+function add(base) {
+	return function(value) {
+		return base + value;
+	}
+}
+
+var fiveAdder = add(5);
+
+var threeAdder = add(3);
+
+fiveAdder(3); // 8
+fiveAdder(2); // 7
+
+threeAdder(2); // 5 ==> base + value ==> 3 + 2
+
+=================================================
+
+ <script>
+        function fibanocci(no) {
+            return (no == 0 || no == 1) ? no : fibanocci(no - 1) + fibanocci(no -2)
+        }
+
+        console.time("first")
+            console.log(fibanocci(34));
+        console.timeEnd("first");
+        console.time("second")
+            console.log(fibanocci(34));
+        console.timeEnd("second");
+    </script>
+
+ Memoization:
+ In computing, memoization or memoisation is an optimization technique used primarily to speed up computer programs by storing the results of expensive function calls and returning the cached result when the same inputs occur again.
+
+ JS
+ getProduct(4);
+
+--> Server Restful API --> Spring Boot --> MySQL --> returned result ==> JSON ==> send JSON
+
+ getProduct(2);
+
+--> Server Restful API --> Spring Boot --> MySQL --> returned result ==> JSON ==> send JSON
+
+ getProduct(4); ==> get from cache
+
+
+--> Server Restful API --> Spring Boot --> MySQL --> returned result ==> JSON ==> send JSON
+
+
+
+
+console.log(fibanocci(34)); ==> compute and store result in cache
+
+console.log(fibanocci(34)); ==> get from cache
+
+=======
+
+
+
+
 

@@ -14,3 +14,15 @@ function filter(data, predicate) {
     });
     return output;
 }
+
+
+function map(data, transformFn) {
+    var output = [];
+    forEach(data, function(elem) {
+         output.push(transformFn(elem));
+    });
+    return output;
+}
+
+
+// reduce
