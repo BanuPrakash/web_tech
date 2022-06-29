@@ -1,8 +1,9 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+// const ESLintPlugin = require('eslint-webpack-plugin');
 const path = require('path');
 
 module.exports = {
-  module: {
+   module: {
     rules: [
       {
         test: /\.css$/,
@@ -14,6 +15,9 @@ module.exports = {
         exclude:/node_modules/
       }
     ]
+  },
+  optimization: {
+    splitChunks: {chunks: "all", name: "vendor"}
   },
   plugins: [new HtmlWebpackPlugin({
       template: path.resolve(__dirname, "src", "index.html")

@@ -1,8 +1,9 @@
 import "./style.css"
 import Person from './Person'; // ES 6 module system
 import {add, sub} from './compute'; 
+import {random} from 'lodash';
 
-console.log("Hello  Adobe!!!");
+console.log("Hello  Adobe!!! " + random(1, 100));
 
 console.log(add(4,5));
 console.log(sub(14,5));

@@ -1205,7 +1205,70 @@ Person.prototype. getName = function() {
 
 =================================
 
-Resume @ 4:25
+3rd party libraries
+
+npm i lodash
+
+ optimization: {
+    splitChunks: {chunks: "all", name: "vendor"}
+ },
+
+ chunks: 'async',
+
+product.bundle.js
+customer.bundle.js /* lazy */
+order.bundle.js /* lazy */
+
+
+=================================
+
+ESLint: for static code analysis
+
+
+npm install eslint eslint-webpack-plugin -D
+
+
+npm init @eslint/config
+-> select appropriate options
+
+creates .eslintrs.js where rules can be configured
+
+ "eslint:recommended", ==> all default rules
+
+  "eslint:airbnb",
+  or
+  "eslint:shopify",
+
+
+ "lint": "eslint . --ext .js "
+
+ npm run lint
+
+ ==================================
+
+ https://getbootstrap.com/
+
+ Documentation:
+
+ Grid system
+
+ Button
+
+ Navbar
+
+ Card
+
+ ==========================================================
+
+ 
+
+
+
+
+
+
+
+
 
 
 
