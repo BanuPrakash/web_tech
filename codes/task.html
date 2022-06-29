@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adobe Training</title>
+    <script src="lib.js"></script>
+</head>
+<body>
+    <form>
+        <select id="category">
+            <option value="-1">Select</option>
+            <option value="mobile">Mobile</option>
+            <option value="tv">Tv</option>
+            <option value="computer">Computer</option>
+        </select>
+    </form>
+   
+        <table id="tbl">
+            <thead><tr><th>ID</th><th>Name</th></tr></thead>
+            <tbody id="body">
+
+            </tbody>
+        </table>
+  
+    <script>
+          var products = [
+            { "id": 1, "name": "iPhone", "price": 124447.44, "category": "mobile" },
+            { "id": 2, "name": "Onida", "price": 4444.44, "category": "tv" },
+            { "id": 3, "name": "OnePlus 6", "price": 98444.44, "category": "mobile" },
+            { "id": 4, "name": "HDMI connector", "price": 2444.00, "category": "computer" },
+            { "id": 5, "name": "Samsung", "price": 68000.00, "category": "tv" }];
+        
+        var tbody = document.getElementById("body");
+        
+        document.getElementById("category").addEventListener("change", function() {
+            tbody.innerHTML = "";
+            var cat = this.value;
+            var selectedProducts = filter(products, (p) => p.category === cat);
+      
+           forEach(selectedProducts, p => {
+                var row = document.createElement("tr");
+                var td = document.createElement("td");
+                td.innerHTML = p.id;
+                row.appendChild(td);
+                td = document.createElement("td");
+                td.innerHTML = p.name;
+                row.appendChild(td);
+                tbody.appendChild(row);
+            });
+        });
+    </script>
+</body>
+</html>
