@@ -1113,24 +1113,97 @@ module.exports = {
 
 ===============
 
+npm i css-loader style-loader -D
+
+The css-loader interprets @import and url() like import/require() and will resolve them.
+
+index.js
+
+import "./style.css"
+
+console.log("Hello  Adobe!!!");
+
+
+style-loader
+The style loader takes CSS and actually inserts it into the page so that the styles are active on the page.
+
+index.html
+<style>
+	body {
+    background-color:cadetblue
+}
+
+h1 {
+    color: bisque;
+}
+</style>
+
+
+======================
+
+Babel: ==> transpiler
+
+npm i @babel/core babel-loader @babel/preset-env -D
+
+
+@babel-core ==> babel transpiler
+
+babel-loader ==> loads imported "js"
 
 
 
 
+@babel/preset-env is a smart preset that allows you to use the latest JavaScript without needing to micromanage which syntax transforms (and optionally, browser polyfills) are needed by your target environment(s). 
+This both makes your life easier and JavaScript bundles smaller!
 
 
 
+babel.config.json
+{
+    "presets": ["@babel/preset-env"]
+}
 
+webpack.config.js
 
+{
+        test: /\.js$/,
+        use: ["babel-loader"],
+        exclude:/node_modules/
+}
 
+======
 
+export default class Person {
+    name;
+    age;
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+    }
 
+    getName() {
+        return this.name;
+    }
 
+    getAge() {
+        return this.age;
+    }
+}
 
+---
 
+same as 
 
+function Person(name, age) {
+        this.name = name;
+        this.age = age;
+}
 
+Person.prototype. getName = function() {
+        return this.name;
+ }
 
+==================
 
 
 
