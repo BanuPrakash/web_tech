@@ -851,6 +851,95 @@ Package Managers available for NodeJS:
 
 First NodeJS project
 
+initialize a node project:
+
+folder> npm init --y
+
+creates package.json
+file where "dependecies", "devlopment dependencies", "scripts" are configured
+
+Development dependeincies:
+* Testing modules
+* Linting ==> static code analysis
+* Transcompiler ==> Babel, TSC,
+* Bundle tools
+
+--
+
+npm i lodash
+
+"dependencies": {
+    "lodash": "^4.17.21"
+}
+
+lodash is doenloaded into "node_modules" folder
+
+ "lodash": "4.17.21" ==> exact version 4.17.21
+  "lodash": "^4.17.21" ==> any version equal or greater than 4.17.21 to be downloaded
+
+   "lodash": "~4.17.21" ==> major version has to be "4"; minor and patch can change [ example: 4.21.11 is valid]
+
+
+Other team members:
+
+folder> npm install
+
+Development Dependecy [ -D ]
+
+folder> npm i mocha chai request -D
+
+
+ "devDependencies": {
+    "chai": "^4.3.6",
+    "mocha": "^10.0.0",
+    "request": "^2.88.2"
+  }
+
+--
+
+"scripts": {
+    "test": "mocha --reporter spec"
+  }
+
+
+===
+
+>node app/server.js
+
+
+=================
+
+JavaScript Unit Testing Libraries:
+
+* Mocha
+* Jasmine ==> By default Angular scaffolding code uses this
+* Jest ==> By default React scaffolding code uses this
+
+Chai is a BDD / TDD assertion library for node and the browser that can be delightfully paired with any javascript testing framework.
+
+
+AAA ==> Assemble Action Assert
+
+describe("test suite name", () => {
+
+	// test spec
+	it("first test", () => {
+		perform action
+		assert return value
+	});
+
+
+	// test spec
+	it("first test", () => {
+		perform action
+		assert return value
+	});
+})
+
+===
+
+$ npm test
+
 
 
 
