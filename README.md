@@ -796,6 +796,66 @@ import {Product} from './Product';
 
 ==============
 
+fs1.js
+var fs = require('fs'); // built-in nodejs module
+
+var content = fs.readFileSync("hof1.html");
+
+console.log(content.toString());
+
+--
+terminal
+
+node fs1.js
+
+=========================================
+
+Package Managers available for NodeJS:
+
+1) NPM
+2) YARN
+3) PNPM
+4) Rush
+
+<script
+  src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"
+  integrity="sha256-6XMVI0zB8cRzfZjqKcD01PBsAy3FlDASrlC8SxCpInY="
+  crossorigin="anonymous"></script>
+
+
+<script src="lib/jquery-ui.js"></script>
+
+
+* manage dependencies
+	react, angular, lodash, jquery ==> 3rd party libraries
+
+	transitive dependencies
+
+	a1.5.js ==> b4.2.js ==> c9.1.js
+
+	npm install react@18.6.0
+	yarn add react@18.6.0
+
+	downloads into "node_modules" folder [ every project has node_modules folder]
+
+* publish
+	npm publish
+
+* Run scripts
+	npm start
+	npm test
+	npm run build
+	npm run lint
+
+==================
+
+First NodeJS project
+
+
+
+
+
+
 
 
 
