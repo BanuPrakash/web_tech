@@ -612,6 +612,197 @@ SAGA Pattern ==> Redux SAGA
 
 ========================================================
 
+<html>
+	<body>
+		<div>
+				Hello
+		</div>
+		<p class="test"></p>
+		<p class="test"></p>
+		<button id="btn">Ok</button>
+	</body>
+</html>
+
+DOM ==> Document Object Model
+
+HTML or XML in the form of tree of  Object [ DOM ] ==> JS or VB
+
+DOM:
+* access elements
+1) document.getElementById("btn")
+
+2) document.getElementByTagName("p");
+
+3) document.querySelector("#btn"); // button with id=btn
+document.querySelectorAll(".test"); // all elements which has class = "test"
+document.querySelectorAll("p"); // all paragraph elements
+
+* allows creation / changes / delete
+
+   const newDiv = document.createElement("div");  // <div>
+
+  // and give it some content
+  const newContent = document.createTextNode("Hi there and greetings!");
+
+  // add the text node to the newly created div
+  newDiv.appendChild(newContent);
+
+  <div>
+  		Hi there and greetings!
+  </div>
+
+* add event listeners to DOM [ https://www.w3schools.com/jsref/dom_obj_event.asp ]
+	DHTML
+
+=====================
+
+Day 2
+
+
+Recap:
+JS, HOF, closure [ memoize pattern] React.memo()
+ES 6 features
+DOM 
+
+==============
+
+
+Node.js
+ ==> platform with JS V8 engine and libuv cross-platform c/c++ libraries
+
+ libuv is a multi-platform C library that provides support for asynchronous I/O based on event loops
+
+ * libuv provides Thread pools for Nonblocking I/O
+ * libuv provides Async handlers for Socket connection
+
+ Why NodeJS?
+
+ * Traditional Web application ==> SSR [ like PHP / Servlet & JSP / ASP.NET ]
+ * To build RESTful Web services [ Spring Boot / C# MVC, Razor ]
+ * Real time applicaitons [ ChatBot]
+ * Streaming API [ OTT ==> Netflix / HotStar / Prime ]
+ * Building client side application
+
+ Why NodeJS for client side application?
+
+ * SPA ==> Single Page application [ lots of modules are executed in client machine]
+ * many JS files with dependencies ==> 30 - 40 js files
+
+ <script src="customer.js"></script>
+ <script src="driver.js"></script>
+ <script src="trip.js"></script>
+ <script src="payment.js"></script>
+
+
+Each script tag is a network call
+
+* we need to bundle them
+
+<script src="bundle.js"></script>
+
+* testing
+* Linting ==> static code analysis
+* transpile [ ES 6 / TypeScript / DART / CoffeeScript] ==> js
+* minify [ remove whitespace]
+* uglify [ big names ==> shorter names]
+* bundle
+
+========================
+ 
+NodeJS comes with many pre-defined modules like fs, http, crypto, clusterm. repl ,...
+
+NodeJS uses by default CommonJS module system
+
+Module system
+1) IIFE ==> Plain Vanilla Module System [ Immediate Invoke Function Expression]
+
+var ShopModule = (function() { 
+	var data = [];
+	function addToCart(elem) { data.push(elem);}
+	function getData() { return data; }
+	function someTask() { }
+	return {
+			addToCart: addToCart,
+			getData: getData
+	}
+})();
+
+
+ShopModule.addToCart({...});
+
+ShopModule.getData();
+
+ShopModule.someTask() ; // error --> not accessable
+ShopModule.data; // it's private to modules; --> not accessable
+
+var ProductModule  = (function() {
+	var data = [{"id": 1, "name" : "a"}, {"id": 1, "name" : "a"}];
+	function getData() {
+		return data;
+	}
+	return {
+		getData: getData
+	}
+})();
+
+ProductModule.getData();
+
+
+2) CommonJS module system [ one file one module ; all members in file are private to module]
+
+compute.js
+
+module.exports.add = function(x, y) {
+
+}
+
+module.exports.subtract = function(x, y) {
+
+}
+ // private to module
+function multiple(x,y) {
+
+}
+
+
+other.js
+
+var compute = require('./compute'); // importing a module
+
+console.log(compute.add(4,5));
+console.log(compute.multiply(4,5)); // error
+
+
+3) ES 6 module
+
+Product.js
+
+export class Product {
+
+}
+
+function doTask() {
+
+}
+
+Other.js
+
+import {Product} from './Product';
+
+
+4) AMD
+5) UMD
+6) System
+
+==============
+
+
+
+
+
+
+
+
 
 
 
