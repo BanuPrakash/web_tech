@@ -915,6 +915,7 @@ JavaScript Unit Testing Libraries:
 * Jasmine ==> By default Angular scaffolding code uses this
 * Jest ==> By default React scaffolding code uses this
 
+
 Chai is a BDD / TDD assertion library for node and the browser that can be delightfully paired with any javascript testing framework.
 
 
@@ -939,6 +940,77 @@ describe("test suite name", () => {
 ===
 
 $ npm test
+
+====================
+
+Browser "fetch" to make http request
+
+request
+
+const request = require('request');
+request('http://www.google.com', function (error, response, body) {
+  console.error('error:', error); // Print the error if one occurred
+  console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
+  console.log('body:', body); // Print the HTML for the Google homepage.
+});
+
+
+======================================================================
+
+Jasmine:
+
+expect(x).toEqual('a');
+
+Jest:
+
+expect(x).toBe('a');
+
+
+Chai:
+ expect(x).to.be.equal('a'); 
+
+==========================================
+
+JavaScript build tools
+
+* Grunt
+* Gulp
+* Webpack
+
+Grunt is a JavaScript task runner, a tool used to automatically perform frequent tasks such as minification, compilation, unit testing, and linting and bundling.
+
+
+
+Grunt and Gulp good for server side JS can be used for building client side web applicaiton also
+Webpack ==> build tool specifically meant for client side web application [ react / backbone/ Angular ]
+
+===============
+
+1) webpackexample>npm init --y
+
+2) npm i webpack webpack-cli -D
+
+3) src/index.js
+
+4)  "scripts": {
+    "dev":  "webpack --mode development",
+    "prod":  "webpack --mode production"
+  }
+
+$ npm run dev
+	creates
+		dist/main.js
+
+		this main.js is the one loaded onto browser; this contains source-map to code in "src" folder
+
+$ npm run prod
+	creates
+		dist/main.js
+
+		this file is without source-map
+
+		
+	
 
 
 
