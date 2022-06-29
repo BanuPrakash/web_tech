@@ -1009,8 +1009,111 @@ $ npm run prod
 
 		this file is without source-map
 
-		
+5) html-webpack-plugin
+
+HtmlWebpackPlugin simplifies creation of HTML files to serve your webpack bundles. 
+This is especially useful for webpack bundles that include a hash in the filename which changes every compilation. 
+
+
+<html>
+<head>
+</head>
+<body>
+		..
+</body>
+</html>
 	
+	html-webpack-plugin takes the bundle file [ dist/main.js] and includes this in index.html
+
+
+<html>
+<head>
+		<script src="dist/main.gef32c#sd211.js"></script>
+		<script src="dist/cart.gef32c#sd211.js"></script>
+		<script src="dist/customer.gef32c#sd211.js"></script>
+		<script src="dist/vendor.js"></script>
+		<script src="dist/bundle.js"></script>
+</head>
+<body>
+		..
+</body>
+</html>
+
+Without hash ==> once page is loaded onto browser ==> main.js ==> cache by browser
+
+With hash ==> "dist/main.gef32c#sd211.js"
+
+"dist/main.424ff32c533.js"
+
+npm i html-webpack-plugin webpack-dev-server -D
+
+
+webpack.config.js
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path');
+
+module.exports = {
+  plugins: [new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, "src", "index.html")
+  })],
+};
+
+
+src/index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Webpack Example!!!</h1>
+</body>
+</html>
+
+
+npm run dev
+
+output: index.html
+
+<script defer src="main.js"></script></head>
+<body>
+    <h1>Webpack Example!!!</h1>
+</body>
+</html>
+
+===
+
+webpack-dev-server
+
+  "start": "webpack serve --mode development"
+
+ npm start
+
+ starts development server on port 8080 by default:
+
+ --
+
+ customization
+
+ const path = require('path');
+
+module.exports = {
+  //...
+  devServer: {
+    static: {
+      directory: path.join(__dirname, 'public'),
+    },
+    compress: true,
+    port: 9000,
+  },
+};
+
+
+===============
+
+
 
 
 
