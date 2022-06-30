@@ -1260,7 +1260,140 @@ creates .eslintrs.js where rules can be configured
 
  ==========================================================
 
- 
+ Day 3
+
+ Recap: NodeJS, NPM, package.json
+
+ Webpack ==> src, output folder
+
+ webpack by default has concat; minify features
+ webpack --mode production
+
+ HtmlWebpackPlugin ==> bundles into html template
+ css-loader ==> import './style.css'
+ style-loader  <style></style>
+
+ babel-loader ==> load .js/ /jsx files
+ ts-loader ==> load .ts/ .tsx files
+
+ @babel-core ==> babel transpiler
+
+ @babel/preset-env ==> polyfills
+
+ JS testing : Mocha, chai
+
+ ----------------------------------------
+
+ CSR ==> client side rendering
+ SSR ==> server side rendering
+ SSG ==> static site generation
+
+ Rendering: data/state/representation of state ==> presentation [View : HTML / PDF/ IMAGE]
+
+
+ AJAX
+ new XmlHttpRequest()
+
+ XMLHttpRequest (XHR) objects are used to interact with servers. 
+ You can retrieve data from a URL without having to do a full page refresh. 
+ This enables a Web page to update just part of a page without disrupting what the user is doing.
+
+jQuery.getJSON()
+
+---
+
+SPA ==> Single Page Application  [ one html "index.html" and many views]
+
+* Different URLS should show different views
+http://amazon.com/mobiles
+http://amazon.com/tvs
+http://amazon.com/mobiles/iPhone
+http://amazon.com/mobiles/Pixel
+http://amazon.com/mobiles/iPhone/13
+http://amazon.com/orders
+
+On server:
+mobiles.js ==> {json data of mobiles}
+tvs.js ==> {json data of tvs}
+orders.js
+customers.js
+
+http://amazon.com/mobiles
+here only mobiles.js gets downloaded from server to client machine
+
+http://amazon.com/orders
+now "orders.js" gets download from server to client machine
+* Lazy loading of modules
+only when url used is "http://amazon.com/orders" ==> orders module has to loaded
+
+* Dependecies between modules
+* Data binding [ one-way binding and two-way-binding]
+
+MVC ==> Model View Controller
+
+Model represents the data and logic
+View is presentation
+Controller ==> Locus between Model and View
+
+Model <---> Controller <--> View 
+
+Libraries  and Frameworks:
+* Backbone Library [MVC pattern] ==> gave support for Model and Controller; for views we have to use 3rd party library
+* AngularJS Framework [ MVVP pattern based on MVC]; pretty have 
+* React Library [ View library ] ==> faster compared to AngularJS
+* Angular Framework [ MVVP pattern] ==> enhanced View rendering ==> zone.js
+* React Library ==> improved rendering by using Fiber architecture [ Concurrent view updates]
+	==> React scores over Angular when it comes Core web Vitals
+
+
+SSG
+A static site generator is a tool that generates a full static HTML website based on raw data and a set of templates. Essentially, a static site generator automates the task of coding individual HTML pages and gets those pages ready to serve to users ahead of time.
+
+Next.js
+Express.js
+
+
+HTML generared every day / every 30 min [India today]
+
+===============================================================
+
+REACT version 18.2.0
+
+codepen.io
+
+HTML
+
+<div id="root"></div>
+
+
+Settings ==> Behaviour => turn off auto-update and auto-save
+
+Settings ==> JS
+1) JS Preprocessor ==> Babel
+Babel includes JSX processing.
+2) JS CDN libraries
+https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js
+https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js
+
+Save & Close
+
+=================================================
+
+In react we have react node
+
+What is React Node?
+==> ReactElement, ReactFragment, string, array of nodes, null, undefined
+
+
+
+let Welcome = React.createElement("h1", {style:{'color':'red'}}, "Welcome to React!!!");
+
+console.log(Welcome)
+
+ReactDOM.render(Welcome, document.getElementById("root"))
+
+
+
 
 
 
