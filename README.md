@@ -1463,6 +1463,41 @@ function Welcome({msg, place}) {
 
 ReactDOM.render(<Welcome msg="Welcome to Adobe!!!" place="Virtual Class"/>, document.getElementById("root"))
 
+========================
+
+Thinking in React:
+1) Mock data
+2) Use Mockup to create a mock UI ==> UI team
+3) think each and every small rectangle component coming up on the screen as react component [ it can exist on its own]
+
+
+// Mock data in place of JSON from SpringBoot RESTful
+var data = [
+{"id":1,"name":"iPhone","price":124447.44,"category" : "mobile"},
+{"id":2,"name":"Onida","price":4444.44,"category" : "tv"},
+{"id":3,"name":"OnePlus 6","price":98444.44,"category" : "mobile"},
+{"id":4,"name":"HDMI connector","price":2444.00,"category" : "computer"},
+{"id":5,"name":"Samsung","price":68000.00,"category" : "tv"}];
+
+function ProductList({title, products}) {
+  return <div>
+        <h1>{title}</h1>
+        {
+          products.map( p => <ProductRow product={p} />)
+       }
+    </div>
+ }
+
+function ProductRow({product}) {
+  return <div>
+        Name : {product.name} <br />
+        Price : {product.price} <br />
+        <hr />
+    </div>
+}
+ReactDOM.render(<ProductList title="Product List" products={data} />, document.getElementById("root"))
+
+=======================================
 
 
 
