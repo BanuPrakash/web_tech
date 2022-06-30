@@ -1697,7 +1697,42 @@ Each child in a list should have a unique "key" prop.
 
  ============================================
 
+ Unit testing React Components
+ * Mocha
+ * Jest
+ * Jasmine
+
+ ATB ==> Angular Test Bed is built on top of Jasmine
+ RTL ===> react testing library is built on top of JEST
+
+  "@testing-library/jest-dom": "^5.16.4",
+  "@testing-library/react": "^13.3.0",
+
+  RTL provides methods to access React Nodes
+
+  * getBy
+  * queryBy
+  * findBy
+
+  ==
+
  
+getByRole: This can be used to query every element that is exposed in the accessibility tree. With the name option you can filter the returned elements by their accessible name. This should be your top preference for just about everything. There's not much you can't get with this (if you can't, it's possible your UI is inaccessible). Most often, this will be used with the name option like so: getByRole('button', {name: /submit/i}). Check the list of roles.
+
+getByLabelText: This method is really good for form fields. When navigating through a website form, users find elements using label text. This method emulates that behavior, so it should be your top preference.
+
+getByPlaceholderText: A placeholder is not a substitute for a label. But if that's all you have, then it's better than alternatives.
+
+getByText: Outside of forms, text content is the main way users find elements. This method can be used to find 
+non-interactive elements (like divs, spans, and paragraphs).
+
+	getByDisplayValue: The current value of a form element can be useful when navigating a page with filled-in values.
+
+
+=========================
+
+
+
 
 
 
