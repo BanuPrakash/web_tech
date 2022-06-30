@@ -40,10 +40,21 @@ export default class CustomerList extends Component {
         super(props);
     }
 
+    deleteCustomer(id) {
+        let custs = this.state.customers.filter(c => c.id !== id); // delete based on id
+        // this.state.customers = custs; // ==> doesn't trigger reconcillation
+
+        this.setState({
+            "customers": custs
+        })
+    }
+
     render() {
         return <React.Fragment>
             {
-                this.state.customers.map(c => <CustomerRow customer={c} />)
+                this.state.customers.map(c => <CustomerRow 
+                    delEvent={(id) => this.deleteCustomer(id)}
+                    customer={c} key={c.id} />)
             }
         </React.Fragment>
     }

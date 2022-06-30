@@ -1502,22 +1502,180 @@ ReactDOM.render(<ProductList title="Product List" products={data} />, document.g
 =======================================
 
 
-npx create-react-app customerapp
+
 
 customerapp> npm i cypress
 
 =================================
 
+* React.createElement
+* Functional Component ==> Return value JSX is converted into React Element
+* Class Component
+	
+	class Product extends React.Component {
+		render() {
 
+		}
+	}
+
+	render() returns JSX
+
+
+===
+
+```
+function Welcome({msg, place}) {
+  return <div>
+    <h1>{msg}</h1>
+    <h3>Place: {place} </h3>
+   </div>
+}
+
+
+
+class Welcome extends React.Component {
+  constructor(props) {
+  	super(props);
+  }
+  render() {
+  	let {msg, place} = this.props;
+ 	 return <div>
+    		<h1>{msg}</h1>
+    		<h3>Place: {place} </h3>
+   		</div>
+	}
+}
 
  
+<Welcome msg="Welcome to Adobe!!!" place="Virtual Class"/>
+```
 
 
+returned JSX should have a root element; can't return multiple values
 
 
+Class Component can have state and behaviour
+	Button --> Component
+	Button has size, color, caption, .. -> state
+	click(), mousemove(), ...
+
+BankingAccount:
+	balance ==> state
+	credit() / debit() ==> behaviour
 
 
+class ProductList extends React.Component {
+	state = {
+		products: [
+			{"id":1,"name":"iPhone","price":124447.44,"category" : "mobile"},
+			{"id":2,"name":"Onida","price":4444.44,"category" : "tv"},
+			{"id":3,"name":"OnePlus 6","price":98444.44,"category" : "mobile"},
+			{"id":4,"name":"HDMI connector","price":2444.00,"category" : "computer"},
+			{"id":5,"name":"Samsung","price":68000.00,"category" : "tv"}]
+	}
 
+	addProduct(){
+
+	}
+	deleteProduct(id) {
+
+	}
+	searchProduct(name) {
+
+	}
+
+	render() {
+
+	}
+}
+
+=======================================
+
+
+npx create-react-app customerapp
+
+creates a scaffolding code using webpack internally
+
+npm i -g create-react-app
+create-react-app customerapp
+
+npm i -g mocha
+mocha --reporter spec
+
+
+npx ==> executable node module
+
+
+  "react-scripts": "5.0.1",
+
+  "start": "react-scripts start",
+
+  npm start
+  "react-scripts start" triggers "webpack serve --mode development"
+   "build": "react-scripts build",
+   "webpack --mode production"
+
+import ReactDOM from 'react-dom/client'; // Fiber architecture
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+    <App />
+ );
+
+ is same as
+ import ReactDOM from 'react-dom'; // stack architecture
+ ReactDOM.render(<App />, document.getElementById("root"))
+
+
+=============
+
+
+class SampleComponent extends React.Component {
+	state = {
+		x: 10,
+		y: 15
+	}
+}
+
+===
+
+<React.Fragment> avoids unncessary <div>
+
+function A() {
+	return <div>
+				<h1></h1>
+				<p></p>
+		</div>
+}
+
+function B() {
+	return <div>
+			<h3></h3>
+			<h4></h4>
+		</div>
+}
+
+
+function C() {
+	return <React.Fragment>
+			<h3></h3>
+			<h4></h4>
+		</React.Fragment>
+}
+
+
+Fragments
+A common pattern in React is for a component to return multiple elements. Fragments let you group a list of children without adding extra nodes to the DOM.
+
+=================
+
+App.js
+CustomerList.js
+CustomerRow.js
+
+================
+Each child in a list should have a unique "key" prop.
+
+===================================================================
 
 
 
