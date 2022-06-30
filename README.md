@@ -1393,7 +1393,7 @@ ReactDOM.render(Welcome, document.getElementById("root"))
 
 =========================================================================================
 
-npx create-react-app customerapp
+
 
 ===================
 
@@ -1472,6 +1472,7 @@ Thinking in React:
 
 
 // Mock data in place of JSON from SpringBoot RESTful
+```
 var data = [
 {"id":1,"name":"iPhone","price":124447.44,"category" : "mobile"},
 {"id":2,"name":"Onida","price":4444.44,"category" : "tv"},
@@ -1496,13 +1497,22 @@ function ProductRow({product}) {
     </div>
 }
 ReactDOM.render(<ProductList title="Product List" products={data} />, document.getElementById("root"))
+```
 
 =======================================
 
 
 
+npx create-react-app customerapp
+
+customerapp> npm i cypress
+
+===========================
+
+Resume @ 2:00
 
 
+=================
 
 
 
