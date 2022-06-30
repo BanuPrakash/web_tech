@@ -1385,12 +1385,84 @@ What is React Node?
 ==> ReactElement, ReactFragment, string, array of nodes, null, undefined
 
 
-
 let Welcome = React.createElement("h1", {style:{'color':'red'}}, "Welcome to React!!!");
 
 console.log(Welcome)
 
 ReactDOM.render(Welcome, document.getElementById("root"))
+
+=========================================================================================
+
+npx create-react-app customerapp
+
+===================
+
+Diffs algorithm
+
+const diffs = [
+	{
+		newNode: { /*  1, tagName: li */},
+		oldNode: { /* One, tagName: li */},
+		index: 0
+	},
+	{
+		newNode: { /* Four */},
+		index: 3
+	}
+
+]
+
+Reconcillation:
+
+diffs.forEach( diff => {
+	const newElement = document.createElement(diff.newNode.tagName); // <li>1</li>
+	if(diff.oldNode) {
+		document.getElementById(..).replaceChild(diff.newElement, diff.index)
+	} else {
+		document.getElementById(..).appendChild(diff.newElement)
+	}
+})
+
+======================
+
+<div>
+	<h1> Welcome to React !!!</h1>
+</div>
+
+
+let Welcome = React.createElement("div",null, React.createElement("h1", {style:{'color':'red'}}, "Welcome to React!!!"));
+
+* functional component
+* class component
+
+
+function Welcome(props) {
+  return <div>
+    <h1>{props.msg}</h1>
+    <h3>Place: {props.place} </h3>
+   </div>
+}
+
+
+
+ReactDOM.render(<Welcome msg="Welcome to Adobe!!!" place="Virtual Class"/>, document.getElementById("root"))
+
+Data passed from parent to child ==> props
+
+=================
+
+
+
+function Welcome({msg, place}) {
+  return <div>
+    <h1>{msg}</h1>
+    <h3>Place: {place} </h3>
+   </div>
+}
+
+
+ReactDOM.render(<Welcome msg="Welcome to Adobe!!!" place="Virtual Class"/>, document.getElementById("root"))
+
 
 
 
