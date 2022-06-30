@@ -1502,17 +1502,17 @@ ReactDOM.render(<ProductList title="Product List" products={data} />, document.g
 =======================================
 
 
-
 npx create-react-app customerapp
 
 customerapp> npm i cypress
 
-===========================
-
-Resume @ 2:00
+=================================
 
 
-=================
+
+ 
+
+
 
 
 
