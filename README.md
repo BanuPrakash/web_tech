@@ -1676,8 +1676,28 @@ CustomerRow.js
 Each child in a list should have a unique "key" prop.
 
 ===================================================================
+ <button type="button" onClick={this.deleteRow}>&times;</button> // context is lost
+ 
+ Correct way of binding:
+ a) <button type="button" onClick={() => this.deleteRow()}>&times;</button> // arrow function will use enclosing context
+
+ b) <button type="button" onClick={this.deleteRow.bind(this)}>&times;</button>
 
 
+ return <>
+
+    </>
+
+
+    same as
+
+  return <React.Fragment>
+
+    </React.Fragment>
+
+ ============================================
+
+ 
 
 
 
