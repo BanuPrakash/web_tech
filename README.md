@@ -2335,5 +2335,43 @@ place these 2 in public/index.html
    <link href="https://fonts.googleapis.com/css?family=Oswald|Permanent+Marker&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
  ```
-   
+
+
+
+```
+ <Link to="/" className="nav-link">   
+                    Products
+ </Link>
+
+ Link uses configured Routes
+
+      <Route path="/products" element={<ProductList />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/details/:id" element={<Details />} />
+            <Route path="/" element={<ProductList />} />
+            <Route path="*" element={<Default />} />
+         
+
+
+ instead of
+
+ <a href="/">Products</a>
+
+ <a> is server side render; triggers a server call
+
+```
+
+Task:
+
+CustomerApp
+
+<CustomerForm />
+
+Id: text
+FirstName: text
+LastName: text
+
+Add customer functionality
+
+==============================================
 
