@@ -2188,3 +2188,92 @@ class App extends React.Component {
 ReactDOM.render(<App/>, document.getElementById("root"))
 
 ```
+
+
+===========================
+
+React Context
+
+Context provides a way to pass data through the component tree without having to pass props down manually at every level.
+
+```
+
+let PersonContext = React.createContext();
+
+class PersonProvider extends React.Component {
+  componentDidMount() {
+    this.setState( {
+      "name": "George",
+		"email": "",
+		"updateEmail": this.updateEmail.bind(this)
+    })
+  }
+ 
+	updateEmail(e) {
+		this.setState({
+			email: e
+		})
+	}
+
+	render() {
+		return <PersonContext.Provider value={{...this.state}}>
+				{this.props.children}
+   		</PersonContext.Provider>
+	}
+}
+
+function First() {
+	return <>
+		I am first <br />
+		<Second />
+	</>
+}
+
+class Second extends React.Component {
+	render() {
+		return <PersonContext.Consumer>
+				{
+					ctx => {
+						return 	<>
+              					Name : {ctx.name} <br />
+								Email: {ctx.email} <br />
+								<button type="button" onClick={() => ctx.updateEmail("me@gmail.com")}>Change</button>
+               		</>
+					}	
+				}
+			</PersonContext.Consumer>	
+	}
+}
+
+class App extends React.Component {
+   
+  render() {
+    return <PersonProvider>
+       <First/>
+     </PersonProvider>
+  }
+}
+
+ReactDOM.render(<App/>, document.getElementById("root"))
+
+```
+
+If Consumer is a Functional Component:
+
+Hooks are introduced in react 16.8 version
+
+```
+function Second() {
+  let ctx = React.useContext(PersonContext); // Consumer
+	return 	<>
+    		Name : {ctx.name} <br />
+			Email: {ctx.email} <br />
+			<button type="button" onClick={() => ctx.updateEmail("me@gmail.com")}>Change</button>
+          	</>
+}
+
+```
+
+
+Resume @ 4:00
+
