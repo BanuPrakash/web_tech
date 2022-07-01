@@ -2275,5 +2275,13 @@ function Second() {
 ```
 
 
-Resume @ 4:00
+
+Phoneapp
+* Context
+* bootstrap and fontawesome
+* react-router-dom
+* styled-components
+* axios ==> to make API calls to RESTful Web services
+
+
 
