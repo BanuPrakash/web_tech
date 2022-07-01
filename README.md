@@ -2150,4 +2150,41 @@ ReactDOM.render(<App/>, document.getElementById("root"))
 
 
 
+===============
 
+Using onChange populate state variables:
+
+```
+class App extends React.Component {
+  state = {
+    username: "",
+    password: ""
+  }
+  constructor(props){
+    super(props);
+    this.handleChange = this.handleChange.bind(this);
+  }
+  sendData() {
+   console.log(this.state);
+  }
+  
+  handleChange(evt) {
+    this.setState({
+      ...this.state,
+      [evt.target.name] : evt.target.value
+    })
+  }
+  render() {
+    return <>
+        <form>
+          Username <input type="text" name="username"  onChange={(evt) => this.handleChange(evt) }/> <br />
+          Password <input type="password" name="password" onChange={(evt) => this.handleChange(evt) } /> <br />
+          <button type="button" onClick={() => this.sendData()}>Submit</button>
+      </form>
+     </>
+  }
+}
+
+ReactDOM.render(<App/>, document.getElementById("root"))
+
+```
