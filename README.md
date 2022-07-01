@@ -2053,6 +2053,10 @@ function Child(props) {
       </>
 }
  
+==========================
+
+
+
 
 Solution:
 
@@ -2104,8 +2108,12 @@ let MemoChild = React.memo(Child, applyCheck);
 ===================================================================================
 
 npx create-react-app phoneapp
+
 phoneapp> npm i bootstrap react-router-dom styled-components
  
+
+==========================================================================
+
 
 
 
