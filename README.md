@@ -2115,5 +2115,39 @@ phoneapp> npm i bootstrap react-router-dom styled-components
 ==========================================================================
 
 
+Handling Form data in react
+
+Using createRef()
+
+```
+class App extends React.Component {
+  state = {
+    username: "",
+    password: ""
+  }
+   userRef = React.createRef();
+   pwdRef = React.createRef(); 
+  sendData() {
+    this.setState({
+      username: this.userRef.current.value,
+      password: this.pwdRef.current.value
+    }, () => console.log(this.state))
+  }
+  render() {
+    return <>
+        <form>
+          Username <input type="text" name="username" ref={this.userRef}/> <br />
+          Password <input type="password" name="password" ref={this.pwdRef}/> <br />
+          <button type="button" onClick={() => this.sendData()}>Submit</button>
+      </form>
+     </>
+  }
+}
+
+ReactDOM.render(<App/>, document.getElementById("root"))
+
+```
+
+
 
 
