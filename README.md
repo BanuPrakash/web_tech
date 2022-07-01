@@ -1849,6 +1849,16 @@ npm test -- --coverate --collectCoverageFrom:["src/**/*.{js,jsx}"]
 
 ===================
 
+Check:
+CustomerRow.test.js
+
+npm test
+and 
+npm test -- --coverage --watchAll
+
+==========================================
+
+
 
 
 

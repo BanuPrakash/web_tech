@@ -4,7 +4,7 @@ import CustomerRow from './CustomerRow';
 
 describe("testing <CustomerRow/> in isolation", () => {
     let callback = jest.fn(); //mock callback inplace of deleteCustomer() of CustomerList
-
+    // let cb = function(id) {console.log("called ", id)}
     let c = {
         "id": 123,
         "firstName": "Jack",
