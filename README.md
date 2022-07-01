@@ -1859,18 +1859,253 @@ npm test -- --coverage --watchAll
 ==========================================
 
 
+npm i cypress -D
+
+
+Cypress ==> end-to-end testing
+
+selenium ==> e2e
+
+Protractor ==> e2e
 
 
 
+needs running application
+
+"scripts": {
+	 "e2e": "cypress open"
+}
 
 
+one terminal:
+npm start
+
+another terminal:
+npm run e2e
+
+==============================================
+
+Developers ==> Unit testing, E2E
+
+UAT ==> Test engineers
+
+===================================================
 
 
+npx create-react-app phoneapp
+
+=========
+
+1) Component Life Cycle methods
+
+Mounting:
+constructor() ==> initialize
+	|
+	|
+	v
+render()
+	|
+	|
+	V
+componentDidMount() ==> API calls
+
+Avoid API calls in constructor(); ==> Issue FCP ==> first contentful paint ==> Core Web Vitals
 
 
+constructor() ==> empty collection of 20 video instances which has "pic", "owner", "text"
+
+render()
+
+componentDidMount() ==> API call and updates the state; on state change  render()
+
+FCP
 
 
+Updating stage:
 
+Whenever props or state changes Update phase 
+
+shouldComponentUpdate() ==> return false;
+
+shouldComponentUpdate() ==> return true; default ==> render() ==> componentDidUpdate()
+
+componentDidUpdate() ==> Make API calls based on props or state change
+
+================
+
+componentWillUnmount() ==> log details ==> pop up Model dialog ==> Thank you ==> feedback
+
+===================================================================
+
+Whenever state or props change ==> component re-renders ==> which triggers entire children to render
+
+Avoid re-render of components
+```
+
+
+class Child extends React.Component {
+  render() {
+    console.log("child re-renders");
+    return <>
+        Child: {this.props.name}
+      </>
+  }
+}
+
+class Parent extends React.Component {
+  state = {
+    count : 0,
+    name: 'Smith'
+  }
+  increment() {
+    this.setState({
+      count : this.state.count + 1
+    })
+  }
+  
+  render() {
+    console.log("Parent renders!!");
+    return <>
+        Name : {this.state.name} <br />
+        Count: {this.state.count} <br />
+      <button onClick={this.increment.bind(this)}>Click</button>
+      <Child name={this.state.name} />
+    </>
+  }
+}
+ReactDOM.render(<Parent/>, document.getElementById("root"));
+```
+
+changes:
+1) 
+```
+
+
+class Child extends React.Component {
+ shouldComponentUpdate(nextProps, nextState) {
+ 	return false;
+ } 
+  render() {
+    console.log("child re-renders");
+    return <>
+        Child: {this.props.name}
+      </>
+  }
+}
+```
+Changes :
+2)
+
+```
+class Child extends React.Component {
+shouldComponentUpdate(nextProps, nextState) {
+ 	return this.props.name !== nextProps.name;
+ } 
+
+3)
+
+class Child extends React.PureComponent {
+   render() {
+    console.log("child re-renders");
+    return <>
+        <br /> Child: {this.props.name}
+      </>
+  }
+}
+
+Go with Purecomponent if "props" are simple not complex
+
+Parent has data = {
+	"name" : "Larry",
+	"address": {
+		"street":
+		"place" : {
+			"karnataka": {
+				"city": "BLORE"
+			}
+		}
+	}
+}
+
+== will check value on primitive
+
+== will check on objects references and not content
+
+
+Doable:
+class Child extends React.PureComponent {
+
+	shouldComponentUpdate(nextProps, nextState) {
+		super.shouldComponentUpdate(nextProps, nextState);
+ 		return my custom check;
+ 	} 
+}
+
+ 
+============================
+
+Render Functional Components:
+
+function Child(props) {
+    console.log("child re-renders");
+    return <>
+        <br /> Child: {props.name}
+      </>
+}
+ 
+
+Solution:
+
+function Child(props) {
+    console.log("child re-renders");
+    return <>
+        <br /> Child: {props.name}
+      </>
+}
+
+let MemoChild = React.memo(Child); // HOC works similar to PureComponent
+
+class Parent extends React.Component {
+  state = {
+    count : 0,
+    name: 'Smith'
+  }
+  increment() {
+    this.setState({
+      count : this.state.count + 1
+    })
+  }
+  
+  render() {
+    console.log("Parent renders!!");
+    return <>
+        Name : {this.state.name} <br />
+        Count: {this.state.count} <br />
+      <button onClick={this.increment.bind(this)}>Click</button>
+      <MemoChild name={this.state.name} />
+    </>
+  }
+}
+ReactDOM.render(<Parent/>, document.getElementById("root"))
+
+```
+
+===
+
+similar to shouldComponentUpdate()
+
+function applyCheck(prevProps, nextProps) {
+	// custom check
+	return true / false;
+}
+
+let MemoChild = React.memo(Child, applyCheck);
+
+===================================================================================
+
+npx create-react-app phoneapp
+phoneapp> npm i bootstrap react-router-dom styled-components
+ 
 
 
 
