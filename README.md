@@ -2107,14 +2107,6 @@ let MemoChild = React.memo(Child, applyCheck);
 
 ===================================================================================
 
-npx create-react-app phoneapp
-
-phoneapp> npm i bootstrap react-router-dom styled-components
- 
-
-==========================================================================
-
-
 Handling Form data in react
 
 Using createRef()
@@ -2284,4 +2276,63 @@ Phoneapp
 * axios ==> to make API calls to RESTful Web services
 
 
+=============================
 
+
+npx create-react-app phoneapp
+
+phoneapp> npm i bootstrap react-router-dom styled-components
+
+
+==
+
+a single "bundle.js" ==> can lead to FCP issues
+
+Solution: divide this bundle.js into many chunks and load lazily as and when required
+
+```
+import {BrowserRouter, Route, Routes} from 'react-router-dom';
+
+import './App.css';
+import Navbar from './components/Navbar';
+import ProductList from './components/ProductList';
+import Cart from './components/Cart';
+import Details from './components/Details';
+import Default from './components/Default';
+
+function App() {
+  return (
+     <>
+        <BrowserRouter>
+          <Navbar />
+          <Routes>
+            <Route path="/products" element={<ProductList />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/details/:id" element={<Details />} />
+            <Route path="/" element={<ProductList />} />
+            <Route path="*" element={<Default />} />
+          </Routes>
+        </BrowserRouter>
+     </>
+  );
+}
+
+export default App;
+
+```
+
+
+====================
+
+from "share.zip"
+1) replace App.css with shared "App.css" content
+2) place "Button.js" styled-component into "components" folder
+3) Replace "Navbar.js" with shared "Navbar.js"
+
+place these 2 in public/index.html
+
+   <link href="https://fonts.googleapis.com/css?family=Oswald|Permanent+Marker&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+   
+
+   
