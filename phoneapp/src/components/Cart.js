@@ -1,4 +1,6 @@
-export default class Cart extends React.Component {
+import { Component } from "react";
+
+export default class Cart extends Component {
     render() {
         return <>
             <h1>Cart!!!</h1>
