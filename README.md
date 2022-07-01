@@ -1731,6 +1731,129 @@ non-interactive elements (like divs, spans, and paragraphs).
 
 =========================
 
+E2E
+
+* React Router DOM
+* Styled-components
+* Bootstrap
+* Fontawesome
+* React Context
+* Lazy Loading
+
+======================================
+
+React
+React Node can be created using
+React.createElement() ==> VDOM [ JSON representation of element]
+* functional Component
+	returned JSX with one root element ==> Root element <div></div> or <React.Fragment></React.Fragment> or <></>
+	{} for interpolation ==> inserting dynamic content in JSX
+
+* class Component
+	extends React.Component
+	render() returns JSX
+	constructor(props) {
+		super(props); // this has to be first statement
+		// init
+	}
+
+	state
+	behaviour
+---
+
+Reconcillation happens on 
+* first call of render() using react-dom; reactive-native; react-tv
+* whenever props changes and state changes using setState();
+
+Event handling in class component:
+
+class Sample extends Component {
+
+	doTask() {
+		console.log(this); // refers to Sample
+	}
+
+
+	render() {
+		return <button onClick={}>Click</button>
+	}
+}
+
+Binding callback to event handler:
+1) onClick={() => this.doTask()}
+	arrow functions uses "this" from enclosing context
+
+2) onClick={this.doTask} 
+	here context is lost; "this" is undefined
+	without "use strict" mode "this" would have refered to "window" ==> see day 1
+
+3) onClick={this.doTask.bind(this)}
+	Binding happens everytime when component is re-rendered; whenever state or props
+
+4) Prefered way:
+class Sample extends Component {
+constructor(props) {
+	this.doTask = this.doTask.bind(this);
+}
+
+onClick={this.doTask}
+
+In this case "binding" happens only once when component is created
+
+===
+
+Unit testing:
+
+RTL is built on top of JEST
+getBy, findBy, queryBy
+
+byRole; byPlaceHolderText, byText, byLabelText, ...
+
+screen object contains above methods
+
+RTL provides render() ==> creates in memory HTML for testing
+
+screen.debug() prints the HTML generated 
+
+RTL provides "fireEvent" using which we can trigger DOM events
+
+fireEvent.click(elem);
+
+
+Day 4:
+
+App.test.js is more like integration testing and not unit testing
+
+render(<App/>)
+	this renders App,  CustomerList, Filter, CustomerRow(#n)
+
+
+Unit testing 
+* CustomerRow has to be tested in isolation
+
+	render(<CustomerRow 
+                    delEvent={(id) => this.deleteCustomer(id)}
+                    customer={c} key={c.id} />)
+
+    But CustomerRow depends on "delEvent = deleteCustomer" and "customer = c"
+
+   Mock callback and mock customer
+
+====
+
+npm test -- --coverage --watchAll
+
+npm test -- --coverate --collectCoverageFrom:["src/**/*.{js,jsx}"]
+
+
+
+===================
+
+
+
+
+
+
 
 
 

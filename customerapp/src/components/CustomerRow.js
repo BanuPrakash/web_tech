@@ -13,5 +13,6 @@ export default class CustomerRow extends Component {
     deleteRow(id) {
         console.log("Delete a Row!!!", id);
         this.props.delEvent(id);
+    
     }
 }

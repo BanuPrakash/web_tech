@@ -40,6 +40,7 @@ export default class CustomerList extends Component {
     constructor(props) {
         super(props);
         this.state.complete = this.state.customers;
+        this.filterCustomers= this.filterCustomers.bind(this);
     }
 
     filterCustomers(txt) {
@@ -62,7 +63,8 @@ export default class CustomerList extends Component {
 
     render() {
         return <React.Fragment>
-            <Filter filterEvent={this.filterCustomers.bind(this)}/>
+            {/* <Filter filterEvent={this.filterCustomers.bind(this)}/> */}
+            <Filter filterEvent={this.filterCustomers}/>
             {
                 this.state.customers.map(c => <CustomerRow 
                     delEvent={(id) => this.deleteCustomer(id)}
