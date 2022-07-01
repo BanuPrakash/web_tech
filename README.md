@@ -2363,15 +2363,32 @@ place these 2 in public/index.html
 
 Task:
 
-CustomerApp
+CustomerApp has <Filter/> <CustomerList /> <CustomerRow />
 
-<CustomerForm />
+create <CustomerForm /> which has 3 text boxes for
 
 Id: text
 FirstName: text
 LastName: text
 
+and a button to add customer ==> this.setState(.. add new customer to this.state.customers)
 Add customer functionality
 
-==============================================
+CustomerList.js
+
+```
+render() {
+        return <React.Fragment>
+     		<CustomerForm />
+            <Filter filterEvent={this.filterCustomers}/>
+            {
+                this.state.customers.map(c => <CustomerRow 
+                    delEvent={(id) => this.deleteCustomer(id)}
+                    customer={c} key={c.id} />)
+            }
+        </React.Fragment>
+    }
+```
+
+========================
 
