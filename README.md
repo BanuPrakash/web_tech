@@ -2689,14 +2689,45 @@ ReactDOM.render(<ParentComponent/>, document.getElementById("root"));
 							setAge(age + 1)
 						}, [age]);
 
-						
+
 	const incrementSalary = React.useCallback(() => {
    		setSalary(salary + 1000)
 	}, [salary]);
 
 ```
 
+4. useEffect() is a hook which can be used to simulate class component lifecycle methods
+ * componentDidMount()
+ * componentDidUpdate()
+ * componentWillUnmount()
+
+```
+function App() {
+  let [count, setCount] = React.useState(0);
+  let [name, setName] = React.useState("Tim");
+  
+  React.useEffect(() => {
+  	console.log("called Effect 1 ==> component did mount");
+  	return () => console.log("unmount!!!")
+  },[]);
+
+  React.useEffect(() => {
+  	console.log("called Effect 2 ==> component did update")
+  });
+
+   React.useEffect(() => {
+  	console.log("called Effect 3 ==> called  whenever count changes but not for name")
+  },[count]);
 
 
+  return <>
+        Count {count} <br />
+        Name {name} <br />
+    <button onClick={() => setCount(count + 1)}>Increment</button>
+    </>
+}
+ReactDOM.render(<App/>, document.getElementById("root"))
+
+```
 
 
