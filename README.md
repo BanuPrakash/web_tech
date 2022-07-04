@@ -2432,7 +2432,43 @@ FCP ==> Core Web vitals
 
 Day 5:
 
- 
+ React ==> RESTful Web services ==> API call
 
+ npm i axios [ HTTP client instead of fetch [built-in browser api]]
+
+
+
+Axios
+Promise based HTTP client for the browser and node.js
+
+npm install axios
+
+-----------
+
+Fake API
+
+JSON Server Node.js: Get a full fake REST API with zero coding
+
+json file is treated as database and endpoints
+
+data.json
+{
+	"customers": [{},{]}],
+	"products": [{}, {}, {}],
+	"orders" : []
+}
+
+npm i -g json-server
+json-server --watch data.json --port 1234
+
+OR
+
+npx json-server --watch data.json --port 1234
+
+window.sessionStorage.setItem("user","banu@gmail.com")
+
+Modify Context.js to use axios
+
+Cart.js implemented Checkout
 
 
