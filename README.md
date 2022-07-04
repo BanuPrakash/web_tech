@@ -2585,6 +2585,7 @@ use this hook when state is complex or conditionally updating of state is requir
 let intialState = {count : 0};
 
 
+```
 let countReducer = (state, action) => {
 	switch(action.type) {
 		case "INCREMENT": return {count : state.count + action.payload};
@@ -2607,7 +2608,7 @@ function App() {
     </>
 }
 ReactDOM.render(<App/>, document.getElementById("root"))
-
+```
 
 ====
 
