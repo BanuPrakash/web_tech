@@ -2614,11 +2614,87 @@ function App() {
 ReactDOM.render(<App/>, document.getElementById("root"))
 ```
 
-====
+=======================
+using React.memo()
 
-Resume @ 2:00
+```
 
 
+function Title() {
+  console.log('Rendering Title')
+  return (
+    <h2>
+      Example: Title
+    </h2>
+  )
+};
+
+const MemoTitle = React.memo(Title);
+
+function Button({ handleClick, children }) {
+  console.log('Rendering button - ', children)
+  return (
+    <button onClick={handleClick}>
+      {children}
+    </button>
+  )
+}
+
+const MemoButton = React.memo(Button);
+
+function Count({ text, count }) {
+	console.log(`Rendering ${text}`)
+	return <div>{text} - {count}</div>
+}
+
+const MemoCount = React.memo(Count);
+
+function ParentComponent() {
+	const [age, setAge] = React.useState(25)
+	const [salary, setSalary] = React.useState(50000)
+
+	 const incrementAge = () => {
+		setAge(age + 1)
+	};
+
+	const incrementSalary = () => {
+   		setSalary(salary + 1000)
+	}
+  
+	return (
+		<div>
+			<MemoTitle />
+			<MemoCount text="Age" count={age} />
+			<MemoButton handleClick={incrementAge}>Increment Age</MemoButton>
+			<MemoCount text="Salary" count={salary} />
+			<MemoButton handleClick={incrementSalary}>Increment Salary</MemoButton>
+		</div>
+	)
+}
+
+ReactDOM.render(<ParentComponent/>, document.getElementById("root"));
+
+```
+
+
+==================================================
+
+3. useCallback() is to memoize callback function
+ it memoizes the function definition
+
+
+```
+ 
+   const incrementAge = React.useCallback(() => {
+							setAge(age + 1)
+						}, [age]);
+
+						
+	const incrementSalary = React.useCallback(() => {
+   		setSalary(salary + 1000)
+	}, [salary]);
+
+```
 
 
 
