@@ -2392,6 +2392,62 @@ render() {
 
 ========================
 
+Re-rendering ==> shouldComponentUpdate(), PureComponent, React.memo()
+
+Context ==> Provider places data into context;
+Consumer can access the data in context without need for passing thro props
+
+<PersonContext.Consumer>
+	{
+		ctx => {}
+	}
+<PersonContext.Consumer>
+	OR
+
+useContext() ==> Consumer
+
+react-router-dom v6
+
+npm i react-router-dom
+
+import Productlist from './components/ProductList'; // EAGER loading ==> adds this into bundle.js
+
+const Cart = React.lazy(() => import './components/Cart'); // lazy loading => creates seperate chunk file 
+and loaded only if w e go to /cart path
+
+FCP ==> Core Web vitals
+
+
+<BrowserRouter>
+	<Suspense fallback={<LoadingComponent />}>
+	<Routes>
+		  <Route path="/products" element={<ProductList />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/details/:id" element={<Details />} />
+            <Route path="/" element={<ProductList />} />
+            <Route path="*" element={<Default />} />
+         </Routes>
+     </Suspense>
+</BrowserRouter>
 
 Day 5:
+
+Context.js
+index.js
+ProductList.js
+Product.js
+
+
+
+http://server.com/api/products/3
+
+http://server.com/api/products?page=3&size=10
+
+http://server.com/api/products?category=mobile
+
+
+==
+
+Context.js
+Product.js
 
