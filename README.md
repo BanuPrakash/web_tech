@@ -2432,22 +2432,7 @@ FCP ==> Core Web vitals
 
 Day 5:
 
-Context.js
-index.js
-ProductList.js
-Product.js
+ 
 
 
-
-http://server.com/api/products/3
-
-http://server.com/api/products?page=3&size=10
-
-http://server.com/api/products?category=mobile
-
-
-==
-
-Context.js
-Product.js
 

@@ -27,6 +27,7 @@ export default function CartList({product}) {
                     Total : {total}
                 </div>
             </div>
+          
         </div>
     
 }

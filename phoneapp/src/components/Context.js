@@ -1,4 +1,4 @@
-import {storeProducts} from '../data';
+// import {storeProducts} from '../data';
 import React, {Component} from 'react';
 const ProductContext = React.createContext(); // placeholder
 
@@ -41,7 +41,7 @@ class ProductProvider extends Component {
 
     decrement = (id) => {
         let prd = this.state.products.filter(p => p.id === id)[0];
-        prd.count++;
+        prd.count--;
         prd.total = prd.price * prd.count;
         // trigger re-render
         this.state({
