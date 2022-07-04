@@ -1,4 +1,6 @@
 // import {storeProducts} from '../data';
+import axios from 'axios';
+
 import React, {Component} from 'react';
 const ProductContext = React.createContext(); // placeholder
 
@@ -9,12 +11,30 @@ class ProductProvider extends Component {
     }
 
     componentDidMount() {
-        let prds = [];
-        storeProducts.forEach(p => {
-            prds.push({...p})
-        })
-        this.setState({
-            products: prds
+        axios.get("http://localhost:1234/products").then(response => {
+            this.setState({
+                products: response.data
+            })
+        });
+        // let prds = [];
+        // storeProducts.forEach(p => {
+        //     prds.push({...p})
+        // })
+        // this.setState({
+        //     products: prds
+        // })
+    }
+
+    checkout = () => {
+        let order = {
+            "username": window.sessionStorage.getItem("user"),
+            "items": this.state.cart
+        }
+
+        axios.post("http://localhost:1234/orders", order).then(response => {
+            this.setState({
+                cart: []
+            }, () =>  console.log("order placed!!!"))
         })
     }
 
@@ -52,7 +72,8 @@ class ProductProvider extends Component {
         return <ProductContext.Provider value={{...this.state, 
                 addToCart: this.addToCart,
                 increment: this.increment,
-                decrement: this.decrement}}>
+                decrement: this.decrement,
+                checkout: this.checkout}}>
             {this.props.children}
         </ProductContext.Provider>
     }

@@ -13,7 +13,7 @@ export default function Cart() {
             <div className="row">
                     <div className="col-md-10"></div>
                     <div className="col-md-2">
-                        <Button> Checkout </Button>
+                        <Button onClick={() => ctx.checkout()}> Checkout </Button>
                     </div>
             </div>
             </div>

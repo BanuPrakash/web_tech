@@ -95,6 +95,49 @@
       "total": 0
     }
   ],
-  "orders": [ ]
-    
+  "orders": [
+    {
+      "username": null,
+      "id": 1
+    },
+    {
+      "username": "banu@gmail.com",
+      "items": [
+        {
+          "id": 1,
+          "title": "Google Pixel - Black",
+          "img": "img/product-1.png",
+          "price": 10,
+          "company": "GOOGLE",
+          "info": "It has an extraordinary camera with features such as Night Sight, Super Res Zoom, Portrait Mode and HDR+. It features a battery that charges fast and lasts all day long. It also comes with three years of security and OS updates included. It’s everything you love about Google – in a phone",
+          "inCart": false,
+          "count": 1,
+          "total": 10
+        },
+        {
+          "id": 6,
+          "title": "Vintage Iphone",
+          "img": "img/product-6.png",
+          "price": 17,
+          "company": "apple",
+          "info": "Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle. Tote bag wolf authentic try-hard put a bird on it mumblecore. Unicorn lumbersexual master cleanse blog hella VHS, vaporware sartorial church-key cardigan single-origin coffee lo-fi organic asymmetrical. Taxidermy semiotics celiac stumptown scenester normcore, ethical helvetica photo booth gentrify.",
+          "inCart": false,
+          "count": 1,
+          "total": 17
+        },
+        {
+          "id": 7,
+          "title": "Iphone 7",
+          "img": "img/product-7.png",
+          "price": 30,
+          "company": "apple",
+          "info": "Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle. Tote bag wolf authentic try-hard put a bird on it mumblecore. Unicorn lumbersexual master cleanse blog hella VHS, vaporware sartorial church-key cardigan single-origin coffee lo-fi organic asymmetrical. Taxidermy semiotics celiac stumptown scenester normcore, ethical helvetica photo booth gentrify.",
+          "inCart": false,
+          "count": 1,
+          "total": 30
+        }
+      ],
+      "id": 2
+    }
+  ]
 }
