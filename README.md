@@ -2730,4 +2730,75 @@ ReactDOM.render(<App/>, document.getElementById("root"))
 
 ```
 
+5. useContext() for ContextConsumer
+
+6. useParams() 
+
+7. useMemo()
+
+memFib ==> memoization of fibanocci
+
+Details.js
+
+let {id} = useParams();
+
+const product = useMemo(() => getProduct(id), [id]);
+
+==================================================
+
+Custom Hooks: useXXXX() ==> built on top of existing hooks
+See: https://react-spectrum.adobe.com/react-aria/
+
+Example:
+
+```
+	import React from 'react';
+
+export default function useApiCall(uri) {
+    
+    const [data, setData] = React.useState(null);
+    const [done, isDone] = React.useState(false);
+
+    React.useEffect(() => {
+        (async () => {
+            let response = await fetch(uri);
+            let retData = await response.json();
+            setData(retData);
+            isDone(tue);  
+        })();
+    }, [uri]);
+
+    return {
+        data,
+        done
+    }
+
+}
+
+--
+import useApiCall from "../useApiCall";
+
+export default function CustomHookComponent () {
+     let {data, done} = useApiCall("https://jsonplaceholder.typicode.com/users");
+    if(!done) return <h1>Loading....</h1>
+    else {
+        return <>
+                {
+                    data.map(user => <h1 key={user.id}>{user.name}, {user.email}</h1>)
+                }
+        </>
+    }
+
+}
+
+
+```
+
+Try this:
+
+Hook called useCustomState()
+internally built on top of useState, useEffect
+should populate data from window.localStorage
+
+===========
 
