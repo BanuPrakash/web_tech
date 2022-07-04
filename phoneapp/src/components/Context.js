@@ -29,9 +29,30 @@ class ProductProvider extends Component {
         })
     }
 
+    increment = (id) => {
+        let prd = this.state.products.filter(p => p.id === id)[0];
+        prd.count++;
+        prd.total = prd.price * prd.count;
+        // trigger re-render
+        this.state({
+            cart:this.state.cart
+        })
+    }
+
+    decrement = (id) => {
+        let prd = this.state.products.filter(p => p.id === id)[0];
+        prd.count++;
+        prd.total = prd.price * prd.count;
+        // trigger re-render
+        this.state({
+            cart:this.state.cart
+        })
+    }
     render() {
         return <ProductContext.Provider value={{...this.state, 
-                addToCart: this.addToCart}}>
+                addToCart: this.addToCart,
+                increment: this.increment,
+                decrement: this.decrement}}>
             {this.props.children}
         </ProductContext.Provider>
     }
