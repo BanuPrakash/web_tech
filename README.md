@@ -2520,6 +2520,7 @@ React Redux hooks:
 1) useState()
 to add state to functional components
 
+```
 class MyComp extends Component {
 	state = {
 		count : 0,
@@ -2542,9 +2543,11 @@ function MyComp() {
 			setCount(10); ==> same as this.setState({count: 10});			
 	}
 }
+```
 
 Example:
 
+```
 function App() {
   let [count, setCount] = React.useState(0);
   let [name, setName] = React.useState("Tim");
@@ -2556,6 +2559,7 @@ function App() {
     </>
 }
 ReactDOM.render(<App/>, document.getElementById("root"))
+```
 
 ===========
 
