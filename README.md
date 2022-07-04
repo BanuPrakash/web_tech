@@ -2471,4 +2471,151 @@ Modify Context.js to use axios
 
 Cart.js implemented Checkout
 
+=====================
+
+Spring Boot  http://localhost:8080/api/products
+@CrossOrigin(origins = "http://localhost:3000")
+
+React http://localhost:3000
+
+https://medium.com/@itzgeoff/including-react-in-your-spring-boot-maven-build-ae3b8f8826e
+https://dimitr.im/bundling-react-spring-boot
+
+=======================================
+ErrorBoundary
+
+React Hooks
+
+Hooks are a new addition in React 16.8. 
+They let you use state and other React features without writing a class.
+
+class component:
+1) can have state and behaviour
+2) has lifecycle methods
+
+class MyComp extends Component {
+
+}
+
+Functional components are light-weight components
+
+React Hooks
+1) useState
+2) useReducer
+3) useCallback
+4) useEffect
+5) useContext
+--
+React Router Hook:
+
+6) useParams() 
+
+React Redux hooks:
+
+7) useSelector()
+8) useDispatch()
+
+=========================
+
+1) useState()
+to add state to functional components
+
+class MyComp extends Component {
+	state = {
+		count : 0,
+		name: "Tim"
+	}
+
+	doTask(data) {
+		this.setState({
+				count: data
+			})
+	}
+}
+
+
+function MyComp() {
+	let [count, setCount] = React.useState(0);
+	let [name, setName] = React.useState("Tim");
+
+	doTask() {
+			setCount(10); ==> same as this.setState({count: 10});			
+	}
+}
+
+Example:
+
+function App() {
+  let [count, setCount] = React.useState(0);
+  let [name, setName] = React.useState("Tim");
+  
+  return <>
+        Count {count} <br />
+        Name {name} <br />
+    <button onClick={() => setCount(count + 1)}>Increment</button>
+    </>
+}
+ReactDOM.render(<App/>, document.getElementById("root"))
+
+===========
+
+2.  useReducer
+
+use this hook when state is complex or conditionally updating of state is required
+	state = {
+		cart: []
+	}
+
+	action type
+	ADD_TO_CART ==> takes product as payload
+	REMOVE_FROM_CART ==> takes id as payload
+	INCREMENT ==> cart item is incremented ==> id as payload
+	CLEAR_CART ==> no payload
+
+
+2.1) action object
+
+	{
+		type: "ADD_TO_CART"
+		payload: {...}
+	}
+
+2.2) reducer function
+
+let intialState = {count : 0};
+
+
+let countReducer = (state, action) => {
+	switch(action.type) {
+		case "INCREMENT": return {count : state.count + action.payload};
+		case "DECREMENT": return {count : state.count - 1};
+		default: return state;
+	}
+}
+
+
+function App() {
+  let [state, dispatch] = React.useReducer(countReducer, intialState);
+  
+  function increment() {
+  	let action = {"type": "INCREMENT", payload: 10};
+  	dispatch(action);
+  }
+  return <>
+        Count {state.count} <br />
+        <button onClick={increment}>Increment</button>
+    </>
+}
+ReactDOM.render(<App/>, document.getElementById("root"))
+
+
+====
+
+
+
+
+
+
+
+
 
