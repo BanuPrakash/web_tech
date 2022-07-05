@@ -2950,4 +2950,44 @@ import RootReducer from './redux/reducers';
 
  ========================
 
+ Redux dispatch(action) is Synchronous
+
+ view ==> dispatch() ==> store ==> reducers ==> updates the state ==> view subscribed for the state
+
+ ===
+ Asynchronous dispatch
+ View triggers
+
+ FETCH_PRODUCTS
+ 	redux 
+ 		state {
+ 			loading:true,
+ 			products: [],
+ 			error: ""
+ 		}
+
+ make API call and based on the result from API call further dispatch has to be done
+ 	FETCH_PRODUCTS_SUCCESS
+ 		state {
+ 			loading:false,
+ 			products: [{}, {}, {}],
+ 			error: ""
+ 		}
+ 	OR
+ 	FETCH_PRODUCTS_FAILURE
+ 		state {
+ 			loading:false,
+ 			products: [],
+ 			error: "error message from server ==> 404 product not found"
+ 		}
+
+ ============
+Async Logic and Data Fetching
+ To handle async dispatches in REDUX we have middleware:
+ * Thunk
+ * ReduxSaga
+ * redux-observable
+ * redux-promise
+
+ https://redux.js.org/tutorials/fundamentals/part-6-async-logic
  
