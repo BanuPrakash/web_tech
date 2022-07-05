@@ -3010,3 +3010,44 @@ Async Logic and Data Fetching
 
  =======================
 
+Spring Boot
+
+
+@RestController
+@RequestMapping("/api/exams")
+@CrossOrigin("http://localhost:3000")
+public class ExamController {
+
+}
+
+Runs on port no 8080
+http://localhost:8080/api/exams
+
+
+
+---
+
+React ==> webpack-dev-server
+
+http://localhost:3000/questions
+http://localhost:3000/exams
+
+
+thunk ..
+
+axios("http://localhost:8080/api/exams").then(response => {
+	...
+})
+
+or
+
+useEffect(() => {
+	axios("http://localhost:8080/api/exams").then(response => {
+	...
+	})
+})
+
+============================================================
+
+
+
