@@ -2990,4 +2990,23 @@ Async Logic and Data Fetching
  * redux-promise
 
  https://redux.js.org/tutorials/fundamentals/part-6-async-logic
+
+
+ Redux-thunk
+ 3,606,339
+
+ Redux-saga
+ 1,059,174
  
+ redux-observable
+ 197,270
+
+ =========================================
+
+
+ npx create-react-app reduxmiddleware
+
+ reduxmiddleware> npm i redux react-redux redux-thunk axios
+
+ =======================
+
