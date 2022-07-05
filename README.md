@@ -2850,3 +2850,91 @@ export default class ErrorBoundary extends React.Component {
 ==========================
 
 
+Day 5 Recap:
+* Context ==> State manangenent to avoid props drill
+* React Hooks;
+	1) useState()
+	2) useEffect()
+	3) useReducer()
+	4) useCallback()
+	5) useContext()
+	6) useParams() ==> react-router-dom
+	7) useMemo() ==> memoize computed value
+	8) custom hooks ==> Adobe aria spectrum
+* ErrorBoundary
+
+Day 6
+
+Predictable State Management
+
+MVC Architectural Pattern
+
+Model View Controller
+
+Model: application state and logic
+
+View: UI
+
+Controller: Locus between Model and View
+
+FLux Pattern ==> Redux
+
+Redux: Predictable State Management
+
+Use Context: if state is not getting mutated frequently; Advantage--> Part of React library; no props drill
+Login ==> banu@gmail.com ==> Context
+Products from server ==> Context
+
+Redux instead of Context: 
+frequent mutation of state; ==> Cart application; transactions; Answers / feedback ==> commit ==> Redux state ==> server
+application size is hugh
+time-travel debugging [replay the events]
+migrating to other UI librarires or Frameworks ==> we can carry this state management
+
+
+========
+
+connect(
+	mapStateToProps,
+	mapDispatchToProps
+)(App);
+
+App is a SmartComponent
+
+
+function mapStateToProps(state) {
+	return {
+		users: state.customers,
+		products: state.data
+	}
+}
+
+
+
+function mapDispatchToProps(dispatch) {
+	return {
+		addToCart: (p) => dispatch({type: ADD_CART, payload: p}),
+		deleteFromCart: (id) => dispatcH({type: DELETE_TO_CART, payload: id})
+	}
+}
+
+===========
+
+npx create-react-app reduxex
+
+reduxex> npm i redux react-redux
+
+============
+ 
+
+
+immutability ==> important concept of redux
+
+
+https://immutable-js.com/
+
+
+
+import RootReducer from './redux/reducers';
+
+
