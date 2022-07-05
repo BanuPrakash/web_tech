@@ -2938,3 +2938,16 @@ https://immutable-js.com/
 import RootReducer from './redux/reducers';
 
 
+=============================
+
+ React Redux includes its own custom hook APIs, which allow your React components to subscribe to the Redux store and dispatch actions.
+
+ useSelector() 
+ The selector is approximately equivalent to the mapStateToProps argument to connect conceptually.
+
+ useDispatch()
+ 	hook to dispatch actions to redux store
+
+ ========================
+
+ 

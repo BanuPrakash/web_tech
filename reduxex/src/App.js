@@ -1,61 +1,39 @@
-import React, {Component} from 'react';
-import { connect } from "react-redux";
+import React from 'react';
+import { useSelector, useDispatch } from "react-redux";
+import ContactView from "./ContactView";
 import {createContact, deleteContact} from './redux/ActionCreators';
-import ContactView from './ContactView';
 
-class App extends Component {
-  nameRef = React.createRef(null);
-  emailRef = React.createRef(null);
+export default function App() {
+    let nameRef = React.createRef(null);
+    let emailRef = React.createRef(null);
 
-  constructor(props) {
-    super(props);
-    this.handleSubmit = this.handleSubmit.bind(this)
-  }
+    // mapStateToProps
+    let contacts = useSelector(state => state.contacts);
 
-  handleSubmit() {
-    let contact = {
-      name : this.nameRef.current.value,
-      email : this.emailRef.current.value,
-    }
-    this.props.newContact(contact);
-  }
-
-  deleteEvent(email) {
-    this.props.removeContact(email)
-  }
-
-  render() {
-    return <div>
-        Name <input type="text" ref={this.nameRef} /> <br />
-        Email <input type="text" ref={this.emailRef} /> <br />
-        <button type="button" onClick={this.handleSubmit}>Add Contact</button>
-        {
-          this.props.data.map(contact => <ContactView 
-            delEvent={() => this.deleteEvent(contact.email)}
-            contact={contact} 
-            key={contact.email} />)
+    // instead of mapDispatchToProps
+    let dispatch = useDispatch();
+    
+    function handleSubmit() {
+        let contact = {
+          name : nameRef.current.value,
+          email : emailRef.current.value,
         }
-    </div>
-  }
-}
+        dispatch(createContact(contact));
+      }
+    
+      function deleteEvent(email) {
+        dispatch(deleteContact(email));
+      }
 
-// state is from redux store
-// returned "contacts" can be used as this.props.data in App
-function mapStateToProps(state) {
-  return {
-    data: state.contacts
-  }
+    return <div>
+      Name <input type="text" ref={nameRef} /> <br />
+      Email <input type="text" ref={emailRef} /> <br />
+      <button type="button" onClick={handleSubmit}>Add Contact</button>
+      {
+        contacts.map(contact => <ContactView 
+          delEvent={() => deleteEvent(contact.email)}
+          contact={contact} 
+          key={contact.email} />)
+      }
+  </div>
 }
-// in React this.props.newContact(contact) ==> dispatch(action) to Redux store
-// in React this.props.removeContact(email) ==> dispatch({
- //       type: REMOVE_CONTACT,
-  //      email: email
-  //  }) to Redux store
-
-function mapDispatchToProps(dispatch) {
-  return {
-    newContact: (contact) => dispatch(createContact(contact)),
-    removeContact: (email) => dispatch(deleteContact(email))
-  }
-}
-export default connect(mapStateToProps, mapDispatchToProps)(App);
